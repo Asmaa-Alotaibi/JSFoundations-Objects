@@ -11,7 +11,7 @@
  * - returns the name of the channel
  ****************************************************************/
 function getChannelName(channel) {
-  // Your code here
+  return channel.name;
 }
 
 /**************************************************************
@@ -20,7 +20,7 @@ function getChannelName(channel) {
  * - returns the number of videos that channel has
  ****************************************************************/
 function numberOfVideos(channel) {
-  // Your code here
+  return channel["videos"].length;
 }
 
 /**************************************************************
@@ -33,7 +33,9 @@ function numberOfVideos(channel) {
  * BONUS: use iteration method `.some()`
  ****************************************************************/
 function channelHasVideo(videoTitle, channel) {
-  // Your code here
+  return channel.video.find((element) => {
+    return element.title === videoTitle;
+  });
 }
 
 /**************************************************************
@@ -45,7 +47,9 @@ function channelHasVideo(videoTitle, channel) {
  * BONUS: use iteration method `.find()`
  ****************************************************************/
 function getChannelByName(channelName, channels) {
-  // Your code here
+  return channels.find((obj) => {
+    return obj.name === channelName;
+  });
 }
 
 /**************************************************************
@@ -57,7 +61,11 @@ function getChannelByName(channelName, channels) {
  * BONUS: use iteration methods `.find()` and `.some()`
  ****************************************************************/
 function getChannelByVideoTitle(videoTitle, channels) {
-  // Your code here
+  return channels.find((obj) => {
+    return obj.videos.find((Element) => {
+      return Element.title === videoTitle;
+    });
+  });
 }
 
 /**************************************************************
@@ -69,7 +77,9 @@ function getChannelByVideoTitle(videoTitle, channels) {
  * Hint: use string method `.includes()` and iteration method `.filter()`
  ****************************************************************/
 function searchChannels(query, channels) {
-  // Your code here
+  return channels.filter((obj) => {
+    return obj.name.includes(query) || obj.description.includes(query);
+  });
 }
 
 module.exports = {
